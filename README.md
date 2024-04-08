@@ -63,5 +63,3 @@ Proyek ini dilisensikan di bawah Lisensi MIT - lihat file [LICENSE](LICENSE) unt
 
 ## Kontak
 Jika Anda memiliki pertanyaan atau ingin berdiskusi lebih lanjut tentang proyek ini, jangan ragu untuk menghubungi saya melalui email: contoh@example.com.
-
-Anda juga dapat mengikuti saya di [Twitter](https://twitter.com/username) untuk mendapatkan pembaruan terbaru tentang proyek ini.
