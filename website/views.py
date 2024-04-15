@@ -125,3 +125,7 @@ def delete_product(request, pk):
     product = get_object_or_404(Product, pk=pk)
     product.delete()
     return redirect('product')
+
+def add_category(request):
+    # Logika untuk menambahkan kategori di sini
+    return render(request, 'add_category.html')
