@@ -26,3 +26,4 @@ class Product(models.Model):
     vom = models.CharField(max_length=50)
     stock_category = models.ForeignKey(Category, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+    
