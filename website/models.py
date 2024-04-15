@@ -14,3 +14,15 @@ class Record(models.Model):
 
 	def __str__(self):
 		return(f"{self.first_name} {self.last_name}")
+	
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    status = models.CharField(max_length=20, choices=[('active', 'Active'), ('inactive', 'Inactive')])
+    created_at = models.DateTimeField(auto_now_add=True)
+
+class Product(models.Model):
+    code = models.CharField(max_length=50)
+    product_name = models.CharField(max_length=100)
+    vom = models.CharField(max_length=50)
+    stock_category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
