@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignUpForm, AddRecordForm, ProductForm
-from .models import Record, Product
+from .models import Record, Product, Category
 
 def home(request):
     records = Record.objects.all()
@@ -100,6 +100,10 @@ def add_product(request):
             return redirect('product')
     else:
         form = ProductForm()
+        # Ambil semua kategori dari tabel Category
+        categories = Category.objects.all()
+        # Teruskan data kategori ke dalam form
+        form.fields['stock_category'].queryset = categories  # Adjust 'stock_category' based on your field name
     return render(request, 'add_product.html', {'form': form})
 
 def edit_product(request, pk):

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h2 class="mt-4 mb-4">Product Detail</h2>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ product.product_name }}</h5>
+            <p class="card-text">VOM: {{ product.vom }}</p>
+            <p class="card-text">Stock Category: {{ product.stock_category.name }}</p>
+            <p class="card-text">Created At: {{ product.created_at }}</p>
+            <a href="{% url 'edit_product' product.id %}" class="btn btn-secondary">Edit</a>
+            <a href="{% url 'delete_product' product.id %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

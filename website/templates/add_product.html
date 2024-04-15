@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="text-center">Add Product</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="product_name">Product Name:</label>
+                            <input type="text" class="form-control" id="product_name" name="product_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vom">VOM:</label>
+                            <input type="text" class="form-control" id="vom" name="vom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="code">Code:</label>
+                            <input type="text" class="form-control" id="code" name="code">
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="stock_category">Stock Category:</label>
+                            <select class="form-control" id="stock_category" name="stock_category">
+                                {% for category in form.fields.stock_category.queryset %}
+                                <option value="{{ category.id }}">{{ category.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
