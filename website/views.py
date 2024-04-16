@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
+from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from .forms import SignUpForm, AddRecordForm, ProductForm
 from .models import Record, Product, Category
 
+@csrf_protect   
 def home(request):
     records = Record.objects.all()
     if request.method == 'POST':
